@@ -39,10 +39,15 @@ export const getCacheOptions = async (
   const cacheTag = await getCacheTag(tag)
 
   if (!cacheTag) {
-    return {}
+    return {
+      revalidate: 60,
+    }
   }
 
-  return { tags: [`${cacheTag}`] }
+  return {
+    revalidate: 60,
+    tags: [`${cacheTag}`]
+  }
 }
 
 export const setAuthToken = async (token: string) => {
