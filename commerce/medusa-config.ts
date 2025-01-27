@@ -21,5 +21,11 @@ module.exports = defineConfig({
         redisUrl: process.env.REDIS_URL,
       },
     },
+    {
+      resolve: `@medusajs/file-local`,
+      options: {
+        backend_url: process.env.MEDUSA_MEDIA_URL
+      },
+    },
   ]
 })
