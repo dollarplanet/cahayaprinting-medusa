@@ -22,11 +22,19 @@ module.exports = defineConfig({
       },
     },
     {
-      resolve: `@medusajs/file-local`,
-      key: ModuleRegistrationName.FILE,
+      resolve: "@medusajs/medusa/file",
       options: {
-        backend_url: process.env.MEDUSA_MEDIA_URL
+        providers: [
+          {
+            resolve: "@medusajs/medusa/file-local",
+            id: "local",
+            options: {
+              backend_url: process.env.MEDUSA_MEDIA_URL
+            },
+          },
+        ],
       },
     },
+
   ]
 })
